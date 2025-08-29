@@ -95,7 +95,7 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json(response, { status: 200, headers: corsHeaders() })
-  } catch (error: any) {
+  } catch (error: unknown) {
     return NextResponse.json(
       {
         is_success: false,
