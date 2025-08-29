@@ -100,8 +100,9 @@ export async function POST(req: NextRequest) {
       {
         is_success: false,
         error: "Malformed JSON or internal error.",
-        details: error?.message || "Unknown error",
+         details: error instanceof Error ? error.message : "Unknown error",
       },
+      
       { status: 400, headers: corsHeaders() },
     )
   }
